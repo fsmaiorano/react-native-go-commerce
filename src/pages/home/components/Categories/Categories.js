@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const Main = () => (
+const Categories = () => (
   <View>
-    <Text>Main View</Text>
+    <Text>Categories</Text>
   </View>
 );
 
-export default Main;
+export default Categories;

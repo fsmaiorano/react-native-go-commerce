@@ -1,9 +1,9 @@
 import { StackNavigator } from 'react-navigation';
 
-import Main from 'pages/main';
+import Home from 'pages/home';
 
 const Routes = StackNavigator({
-  Main: { screen: Main },
+  Home: { screen: Home },
 });
 
 export default Routes;
