@@ -8,7 +8,7 @@ import CategoryItem from 'pages/home/components/CategoryItem/CategoryItem';
 
 class Categories extends Component {
 
- componentDidMount(){
+  componentDidMount() {
     this.props.getCategoriesRequest();
   }
 
@@ -24,7 +24,7 @@ class Categories extends Component {
 }
 
 const mapStateToProps = state => ({
-  categories: state.categories,
+  categories: state.Categories.activeCategories,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(CategoriesActions, dispatch);
