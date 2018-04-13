@@ -1,10 +1,14 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 
-const Categories = () => (
-  <View>
-    <Text>Categories</Text>
-  </View>
+import CategoryItem from 'pages/home/components/CategoryItem/CategoryItem';
+
+const Categories = ({ categories }) => (
+  <FlatList
+    data={categories}
+    keyExtractor={category => String(category.id)}
+    renderItem={({ item }) => <CategoryItem category={item} />}
+  />
 );
 
 export default Categories;
