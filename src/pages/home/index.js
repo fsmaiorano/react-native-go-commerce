@@ -19,7 +19,7 @@ class Home extends Component {
     return(
       <View>
       {
-        this.props.categories ?
+        this.props.categories && this.props.categories.isLoading ?
         (<Text>Carregando...</Text>) :
         (<Categories categories={this.props.categories} />)
 
