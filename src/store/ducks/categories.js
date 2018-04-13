@@ -17,6 +17,7 @@ export default function categories(state = initialState, action) {
     case Types.GET_CATEGORIES_REQUEST:
       return { ...state, isLoading: true};
     case Types.GET_CATEGORIES_SUCCESS:
+    debugger;
       return { ...state, isLoading: false, categories: action.payload.categories };
     case Types.GET_CATEGORIES_FAILURE:
       return { ...state, isLoading: false, categories: action.payload.error };

@@ -10,20 +10,10 @@ import Categories from './components/Categories/Categories';
 
 class Home extends Component {
 
-  componentDidMount(){
-    debugger;
-    this.props.getCategoriesRequest();
-  }
-
   render(){
     return(
       <View>
-      {
-        this.props.categories && this.props.categories.isLoading ?
-        (<Text>Carregando...</Text>) :
-        (<Categories categories={this.props.categories} />)
-
-      }
+        <Categories/>
       </View>
     )
   }
@@ -33,6 +23,4 @@ const mapStateToProps = state => ({
   categories: state.categories,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(CategoriesActions, dispatch);
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps)(Home);
