@@ -11,8 +11,8 @@ import Categories from './components/Categories/Categories';
 class Home extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'GoCommerce',
-    headerStyle: { justifyContent: 'center', borderWidth: 1, borderColor: '#1d2088' },
-    headerTitleStyle: { textAlign: 'center', borderWidth: 1, borderColor: '#ff0000' }
+    // headerStyle: { justifyContent: 'center', borderWidth: 1, borderColor: '#1d2088' },
+    // headerTitleStyle: { textAlign: 'center', borderWidth: 1, borderColor: '#ff0000' }
   });
 
   render() {
