@@ -14,7 +14,7 @@ class Categories extends Component {
   }
 
   selectCategory = (category) => {
-    console.tron.log(category)
+    this.props.setSelectedCategory(category);
   }
 
   render() {
@@ -34,7 +34,7 @@ class Categories extends Component {
 }
 
 const mapStateToProps = state => ({
-  categories: state.Categories.activeCategories,
+  categories: state.Categories.getCategories,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(CategoriesActions, dispatch);

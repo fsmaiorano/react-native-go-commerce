@@ -4,22 +4,31 @@ export const Types = {
   GET_CATEGORIES_REQUEST: 'categories/GET_CATEGORIES_REQUEST',
   GET_CATEGORIES_SUCCESS: 'categories/GET_CATEGORIES_SUCCESS',
   GET_CATEGORIES_FAILURE: 'categories/GET_CATEGORIES_FAILURE',
+
+  SET_SELECTED_CATEGORY_REQUEST: 'categories/SET_SELECTED_CATEGORY',
+  SET_SELECTED_CATEGORY_SUCCESS: 'categories/SET_SELECTED_CATEGORY_SUCCESS',
+  SET_SELECTED_CATEGORY_FAILURE: 'categories/SET_SELECTED_CATEGORY_FAILURE',
 };
 
 const initialState = Immutable({
   categories: [],
+  selectedCategory: {},
   isLoading: false,
 });
 
 export default function categories(state = initialState, action) {
 
-  switch(action.type){
+  switch (action.type) {
     case Types.GET_CATEGORIES_REQUEST:
-      return { ...state, isLoading: true};
+      return { ...state, isLoading: true };
     case Types.GET_CATEGORIES_SUCCESS:
-      return { ...state, isLoading: false, activeCategories: action.payload.categories };
+      return { ...state, isLoading: false, getCategories: action.payload.categories };
     case Types.GET_CATEGORIES_FAILURE:
-      return { ...state, isLoading: false, activeCategories: action.payload.error };
+      return { ...state, isLoading: false, getCategories: action.payload.error };
+    case Types.SET_SELECTED_CATEGORY_REQUEST:
+      return { ...state, isLoading: true, selectedCategory: action.payload.category };
+    case Types.SET_SELECTED_CATEGORY_SUCCESS:
+      return { ...state, isLoading: false, selectedCategory: action.payload.category };
     default:
       return state;
   }
@@ -27,6 +36,8 @@ export default function categories(state = initialState, action) {
 };
 
 export const Creators = {
+
+  //Categories
 
   getCategoriesRequest: () => ({
     type: Types.GET_CATEGORIES_REQUEST,
@@ -42,4 +53,20 @@ export const Creators = {
     payload: { error },
   }),
 
+  // Set Selected Category
+
+  setSelectedCategory: category => ({
+    type: Types.SET_SELECTED_CATEGORY_REQUEST,
+    payload: { category },
+  }),
+
+  setSelectedCategorySuccess: category => ({
+    type: Types.SET_SELECTED_CATEGORY_SUCCESS,
+    payload: { category },
+  }),
+
+  setSelectedCategoryFailure: category => ({
+    type: Types.SET_SELECTED_CATEGORY_FAILURE,
+    payload: { category },
+  }),
 };

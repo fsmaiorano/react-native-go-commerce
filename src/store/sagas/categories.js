@@ -12,3 +12,11 @@ export function* getCategories() {
     yield put(CategoriesActions.getCategoriesFailure('Erro ao recuperar categorias'));
   }
 }
+
+export function* setSelectedCategory(action) {
+  try {
+    yield put(CategoriesActions.setSelectedCategorySuccess(action.payload.category));
+  } catch (err) {
+    yield put(CategoriesActions.setSelectedCategoryFailure('Erro ao selecionar uma categoria'));
+  }
+}
