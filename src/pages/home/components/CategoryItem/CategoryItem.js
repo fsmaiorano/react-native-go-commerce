@@ -1,8 +1,12 @@
 import React from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 
-const CategoryItem = ({category}) => (
-  <Text>{category.title}</Text>
+import styles from './styles';
+
+const CategoryItem = ({ category }) => (
+  <TouchableOpacity style={styles.category} onPress={() => { }}>
+    <Text style={styles.category}>{category.title}</Text>
+  </TouchableOpacity>
 );
 
 export default CategoryItem;

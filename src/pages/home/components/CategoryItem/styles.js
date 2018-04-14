@@ -3,7 +3,8 @@ import { StyleSheet } from 'react-native';
 import { general, colors, metrics } from 'styles';
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
+  category: {
+    fontSize: 55,
+    justifyContent: 'center', borderWidth: 1, borderColor: '#1d2088'
+  }
 });
