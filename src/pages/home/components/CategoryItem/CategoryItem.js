@@ -3,8 +3,8 @@ import { View, Text, TouchableOpacity } from 'react-native';
 
 import styles from './styles';
 
-const CategoryItem = ({ category }) => (
-  <TouchableOpacity style={styles.category} onPress={() => { }}>
+const CategoryItem = ({ category, getCategory }) => (
+  <TouchableOpacity style={styles.category} onPress={() => getCategory(category)}>
     <Text style={styles.category}>{category.title}</Text>
   </TouchableOpacity>
 );

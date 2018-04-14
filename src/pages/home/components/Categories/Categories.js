@@ -13,6 +13,10 @@ class Categories extends Component {
     this.props.getCategoriesRequest();
   }
 
+  selectCategory = (category) => {
+    console.tron.log(category)
+  }
+
   render() {
     return (
       <View style={styles.listContainer}>
@@ -22,7 +26,7 @@ class Categories extends Component {
         horizontal={true}
         ItemSeparatorComponent={() => <View style={{width:15,  margin: 25}} />}
         keyExtractor={category => String(category.id)}
-        renderItem={({ item }) => <CategoryItem category={item} />}
+        renderItem={({ item }) => <CategoryItem getCategory={(item) => this.selectCategory(item)} category={item} />}
       />
       </View>
     )
