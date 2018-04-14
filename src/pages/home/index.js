@@ -19,6 +19,10 @@ class Home extends Component {
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
+        <Text>{
+          this.props.selectedCategory.title ?
+          this.props.selectedCategory.title : null
+        }</Text>
         <Categories />
       </View>
     )
@@ -26,7 +30,7 @@ class Home extends Component {
 }
 
 const mapStateToProps = state => ({
-  categories: state.categories,
+  selectedCategory: state.Categories.selectedCategory,
 });
 
 export default connect(mapStateToProps)(Home);
