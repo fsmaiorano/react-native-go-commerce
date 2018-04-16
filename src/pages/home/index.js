@@ -15,6 +15,11 @@ class Home extends Component {
     // headerTitleStyle: { textAlign: 'center', borderWidth: 1, borderColor: '#ff0000' }
   });
 
+  componentDidUpdate = () => {
+    console.tron.log(this.props.selectedCategory);
+    this.props.getProductsByCategoryRequest(this.props.selectedCategory);
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -33,4 +38,6 @@ const mapStateToProps = state => ({
   selectedCategory: state.Categories.selectedCategory,
 });
 
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = dispatch => bindActionCreators(CategoriesActions, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
