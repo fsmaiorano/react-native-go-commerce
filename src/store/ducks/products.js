@@ -9,7 +9,7 @@ export const Types = {
 };
 
 const initialState = Immutable({
-  category: {},
+  selectedCategoryProduct: {},
   isLoading: false,
 });
 
@@ -20,7 +20,7 @@ export default function products(state = initialState, action) {
     case Types.GET_PRODUCTS_BY_CATEGORY_REQUEST:
       return { ...state, isLoading: true, category: action.payload.category };
     case Types.GET_PRODUCTS_BY_CATEGORY_SUCCESS:
-      return { ...state, isLoading: false, ...action.payload.products };
+      return { ...state, isLoading: false, selectedCategoryProduct: action.payload.products };
     case Types.GET_PRODUCTS_BY_CATEGORY_FAILURE:
       return { ...state, isLoading: false, error: action.payload.error };
 

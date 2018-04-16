@@ -27,7 +27,7 @@ class Home extends Component {
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
         <Categories />
-        <Products products={this.props.products} />
+        <Products />
 
         <Text>{
           this.props.selectedCategory.title ?
@@ -40,7 +40,6 @@ class Home extends Component {
 
 const mapStateToProps = state => ({
   selectedCategory: state.Categories.selectedCategory,
-  products: state.Products.products,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(Object.assign({}, CategoriesActions, ProductsActions), dispatch);
