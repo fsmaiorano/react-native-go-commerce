@@ -28,11 +28,6 @@ class Home extends Component {
         <StatusBar barStyle="light-content" />
         <Categories />
         <Products />
-
-        <Text>{
-          this.props.selectedCategory.title ?
-            this.props.selectedCategory.title : null
-        }</Text>
       </View>
     )
   }
