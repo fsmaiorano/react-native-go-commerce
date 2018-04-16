@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 import { View, Text, StatusBar } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { Creators as CategoriesActions } from 'store/ducks/categories';
+import { Creators as ProductsActions } from 'store/ducks/products';
 
 import styles from './styles';
 
 import Categories from './components/Categories/Categories';
+import Products from './components/Products/Products';
 
 class Home extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -24,11 +26,13 @@ class Home extends Component {
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
+        <Categories />
+        <Products products={this.props.products} />
+
         <Text>{
           this.props.selectedCategory.title ?
-          this.props.selectedCategory.title : null
+            this.props.selectedCategory.title : null
         }</Text>
-        <Categories />
       </View>
     )
   }
@@ -36,8 +40,9 @@ class Home extends Component {
 
 const mapStateToProps = state => ({
   selectedCategory: state.Categories.selectedCategory,
+  products: state.Products.products,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(CategoriesActions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(Object.assign({}, CategoriesActions, ProductsActions), dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

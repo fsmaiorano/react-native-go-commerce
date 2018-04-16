@@ -21,13 +21,3 @@ export function* setSelectedCategory(action) {
   }
 }
 
-export function* getProducts(action) {
-  try {
-    const response = yield call(api.get, '/category_products');
-    let products = response.data.filter(p => p.id === action.payload.category.id);
-    yield put(CategoriesActions.getProductsByCategorySuccess(products));
-
-  } catch (err) {
-    yield put(CategoriesActions.getProductsByCategoryFailure('Erro ao recuperar produtos'));
-  }
-}

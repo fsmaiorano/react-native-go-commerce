@@ -16,7 +16,7 @@ export const Types = {
 };
 
 const initialState = Immutable({
-  categories: [],
+  getCategories: [],
   selectedCategory: {},
   isLoading: false,
 });
@@ -36,13 +36,6 @@ export default function categories(state = initialState, action) {
       return { ...state, isLoading: true, selectedCategory: action.payload.category };
     case Types.SET_SELECTED_CATEGORY_SUCCESS:
       return { ...state, isLoading: false, selectedCategory: action.payload.category };
-
-    case Types.GET_PRODUCTS_BY_CATEGORY_REQUEST:
-      return { ...state, isLoading: true, products: action.payload.category };
-    case Types.GET_PRODUCTS_BY_CATEGORY_SUCCESS:
-      return { ...state, isLoading: false, products: action.payload.products };
-    case Types.GET_PRODUCTS_BY_CATEGORY_FAILURE:
-      return { ...state, isLoading: false, error: action.payload.error };
 
     default:
       return state;
@@ -83,22 +76,5 @@ export const Creators = {
   setSelectedCategoryFailure: category => ({
     type: Types.SET_SELECTED_CATEGORY_FAILURE,
     payload: { category },
-  }),
-
-  // Get Products by Category
-
-  getProductsByCategoryRequest: category => ({
-    type: Types.GET_PRODUCTS_BY_CATEGORY_REQUEST,
-    payload: { category },
-  }),
-
-  getProductsByCategorySuccess: products => ({
-    type: Types.GET_PRODUCTS_BY_CATEGORY_SUCCESS,
-    payload: { products },
-  }),
-
-  getProductsByCategoryFailure: products => ({
-    type: Types.GET_PRODUCTS_BY_CATEGORY_FAILURE,
-    payload: { error },
   }),
 };
