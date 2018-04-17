@@ -31,10 +31,9 @@ class Categories extends Component {
     return (
       <View style={styles.listContainer}>
         <FlatList
-          style={styles.listCategories}
           data={this.props.categories}
           horizontal={true}
-          ItemSeparatorComponent={() => <View style={{ width: 15, margin: 25 }} />}
+          ItemSeparatorComponent={() => <View style={{ margin: 25 }} />}
           keyExtractor={category => String(category.id)}
           renderItem={({ item }) => <CategoryItem getCategory={(item) => this.selectCategory(item)} category={item} />}
         />

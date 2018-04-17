@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { View, Text, StatusBar } from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { bindActionCreators } from 'redux';
 // import { Creators as CategoriesActions } from 'store/ducks/categories';
 
@@ -27,11 +27,16 @@ class Products extends Component {
   render() {
     const { selectedCategoryProduct } = this.props;
     return (
-      <View>
+      <View style={styles.container}>
         {
           selectedCategoryProduct.products ? (selectedCategoryProduct.products.map(prod => (
             <View key={prod.id} style={styles.productContainer}>
-              <Text>{prod.name}</Text>
+              <Image resizeMode="contain" style={styles.avatar} source={{ uri: prod.image }} />
+              <View style={styles.productInfo}>
+                <Text style={styles.productName}>{prod.name}</Text>
+                <Text style={styles.productBrand}>{prod.brand}</Text>
+                <Text style={styles.productPrice}>R$ {prod.price}</Text>
+              </View>
             </View>
           ))
           ) : (
