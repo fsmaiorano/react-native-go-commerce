@@ -5,8 +5,8 @@ import { general, colors, metrics } from 'styles';
 const styles = StyleSheet.create({
   category: {
     padding: 5,
-    fontSize: 12,
-    fontWeight: 'bold',
+    // fontSize: 12,
+    // fontWeight: 'bold',
   },
 });
 

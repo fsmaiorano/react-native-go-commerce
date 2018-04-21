@@ -22,7 +22,7 @@ ProductItem.propTypes = {
     name: PropTypes.string,
     brand: PropTypes.string,
     image: PropTypes.string,
-  }).isRequired,
+  }),
 }
 
 
