@@ -10,9 +10,12 @@ import styles from './styles';
 import Categories from './components/Categories/Categories';
 import Products from './components/Products/Products';
 
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 class Home extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'GoCommerce',
+    tabBarIcon: ({ tintColor }) => <Icon name="list-alt" size={20} color="black" />,
     // headerStyle: { justifyContent: 'center', borderWidth: 1, borderColor: '#1d2088' },
     // headerTitleStyle: { textAlign: 'center', borderWidth: 1, borderColor: '#ff0000' }
   });

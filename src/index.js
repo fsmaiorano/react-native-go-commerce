@@ -9,7 +9,7 @@ import Routes from 'routes';
 
 const App = () => (
   <Provider store={store}>
-    <Routes />
+      <Routes />
   </Provider>
 );
 
