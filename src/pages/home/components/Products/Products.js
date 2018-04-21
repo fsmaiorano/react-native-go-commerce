@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { View, Text, TouchableOpacity, Image, FlatList } from 'react-native';
 import { bindActionCreators } from 'redux';
+import { NavigationActions } from 'react-navigation';
 // import { Creators as CategoriesActions } from 'store/ducks/categories';
 
 import styles from './styles';
@@ -26,7 +27,12 @@ class Products extends Component {
   }
 
   selectProduct = (product) => {
-    console.log(product)
+    const navigateAction = NavigationActions.navigate({
+      routeName: 'Details',
+      params: { product: product },
+      action: NavigationActions.navigate({ routeName: 'Details' }),
+    });
+    this.props.goProductDetails.dispatch(navigateAction);
   }
 
 
@@ -38,7 +44,7 @@ class Products extends Component {
           selectedCategoryProduct.products ?
             (
               <FlatList
-                style={{borderWidth: 1, borderColor: 'green'}}
+                style={{ borderWidth: 1, borderColor: 'green' }}
                 data={selectedCategoryProduct.products}
                 keyExtractor={product => String(product.id)}
                 renderItem={({ item }) => <ProductItem product={item} getProduct={(item) => this.selectProduct(item)} />}
