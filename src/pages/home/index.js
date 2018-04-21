@@ -24,7 +24,7 @@ class Home extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <StatusBar barStyle="light-content" />
         <Categories />
         <Products />

@@ -4,9 +4,9 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 
 import styles from './styles';
 
-const ProductItem = ({ product }) => (
-  <TouchableOpacity onPress={() => { }}>
-    <View key={product.id} style={styles.productContainer}>
+const ProductItem = ({ product, getProduct }) => (
+  <TouchableOpacity  style={styles.productContainer} onPress={() => getProduct(product)}>
+    <View key={product.id}>
       <Image resizeMode="contain" style={styles.avatar} source={{ uri: product.image }} />
       <Text style={styles.productName}>{product.name}</Text>
       <Text style={styles.productBrand}>{product.brand}</Text>

@@ -25,6 +25,11 @@ class Products extends Component {
     }),
   }
 
+  selectProduct = (product) => {
+    console.log(product)
+  }
+
+
   render() {
     const { selectedCategoryProduct } = this.props;
     return (
@@ -32,13 +37,12 @@ class Products extends Component {
         {
           selectedCategoryProduct.products ?
             (
-              <View style={styles.container}>
               <FlatList
+                style={{borderWidth: 1, borderColor: 'green'}}
                 data={selectedCategoryProduct.products}
                 keyExtractor={product => String(product.id)}
-                renderItem={({ item }) => <ProductItem product={item} />}
+                renderItem={({ item }) => <ProductItem product={item} getProduct={(item) => this.selectProduct(item)} />}
               />
-              </View>
             ) : (
               <View>
                 <Text>Bem vindo ao GoCommerce!</Text>
