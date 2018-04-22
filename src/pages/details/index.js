@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, Image, Button } from 'react-native';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Creators as CartActions } from 'store/ducks/cart';
 
 import styles from './styles';
 
@@ -10,6 +14,16 @@ class Details extends Component {
     // headerTitleStyle: { textAlign: 'center', borderWidth: 1, borderColor: '#ff0000' }
   });
 
+  componentDidMount() {
+    this.props.getCartRequest();
+  }
+
+  addToCart = (product) => {
+    const { cartItems } = this.props.cart;
+    cartItems.push(product);
+    this.props.setCartRequest(cartItems);
+  }
+
   render() {
     const { product } = this.props.navigation.state.params;
     return (
@@ -18,17 +32,16 @@ class Details extends Component {
         <Text style={styles.productName}>{product.name}</Text>
         <Text style={styles.productBrand}>{product.brand}</Text>
         <Text style={styles.productPrice}>R$ {product.price}</Text>
-        <Button title="Adicionar ao carrinho" />
+        <Button title="Adicionar ao carrinho" onPress={() => this.addToCart(product)} />
       </View>
     )
   }
 };
 
+const mapStateToProps = state => ({
+  cart: state.Cart,
+});
 
-// const Details = ({ product }) => {
-//   <View>
-//     <Text>{product.name} </Text>
-//   </View>
-// };
+const mapDispatchToProps = dispatch => bindActionCreators(CartActions, dispatch);
 
-export default Details;
+export default connect(mapStateToProps, mapDispatchToProps)(Details);

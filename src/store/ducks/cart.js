@@ -11,7 +11,7 @@ export const Types = {
 };
 
 const initialState = Immutable({
-  cart: [],
+  cartItems: [],
   isLoading: false,
 });
 
@@ -20,16 +20,16 @@ export default function cart(state = initialState, action) {
   switch (action.type) {
 
     case Types.GET_CART_REQUEST:
-      return { ...state, isLoading: true, cart: action.payload.cart };
+      return { ...state, isLoading: true, cartItems: state.cartItems };
     case Types.GET_CART_SUCCESS:
-      return { ...state, isLoading: false, cart: action.payload.cart };
+      return { ...state, isLoading: false, cartItems: [...action.payload.cart] };
     case Types.GET_CART_FAILURE:
       return { ...state, isLoading: false, error: action.payload.error };
 
     case Types.SET_CART_REQUEST:
-      return { ...state, isLoading: true, cart: action.payload.cart };
+      return { ...state, isLoading: true, cartItems: [...action.payload.cart] };
     case Types.SET_CART_SUCCESS:
-      return { ...state, isLoading: false, cart: action.payload.cart };
+      return { ...state, isLoading: false, cartItems: action.payload.cart };
     case Types.SET_CART_FAILURE:
       return { ...state, isLoading: false, error: action.payload.error };
 
@@ -45,9 +45,9 @@ export const Creators = {
     type: Types.GET_CART_REQUEST,
   }),
 
-  getCartSuccess: categories => ({
+  getCartSuccess: cart => ({
     type: Types.GET_CART_SUCCESS,
-    payload: { categories },
+    payload: { cart },
   }),
 
   getCartFailure: error => ({
@@ -55,13 +55,14 @@ export const Creators = {
     payload: { error },
   }),
 
-  setCartRequest: () => ({
+  setCartRequest: cart => ({
     type: Types.SET_CART_REQUEST,
+    payload: { cart },
   }),
 
-  setCartSuccess: categories => ({
+  setCartSuccess: cart => ({
     type: Types.SET_CART_SUCCESS,
-    payload: { categories },
+    payload: { cart },
   }),
 
   setCartFailure: error => ({
