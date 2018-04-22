@@ -5,29 +5,46 @@ import { general, metrics, colors } from 'styles';
 const styles = StyleSheet.create({
 
   productName: {
-    ...general.productName,
-    alignSelf: 'flex-start',
+    fontSize: 18,
+    color: colors.black,
+    fontWeight: 'bold',
   },
   productBrand: {
-    ...general.productBrand,
-    alignSelf: 'flex-start',
+    fontSize: 12,
+    color: colors.darkGray,
   },
   productPrice: {
-    ...general.productPrice,
-    alignSelf: 'flex-end',
+    fontSize: 24,
+    color: colors.secondary,
   },
   avatar: {
-    ...general.avatar,
-    justifyContent: 'center',
-    alignSelf: 'center',
+    height: 285,
+    width: '100%',
   },
   productContainer: {
-    minWidth: metrics.screenWidth - 25,
+    ...general.productContainer,
     justifyContent: 'center',
     alignItems: 'center',
-
-    ...general.productContainer,
+    margin: metrics.baseMargin * 2,
+    padding: metrics.basePadding,
+    height: '80%',
   },
+
+  addToCart: {
+    height: 45,
+    width: '100%',
+    paddingTop: 12,
+    backgroundColor: colors.secondary,
+  },
+
+  addToCartLabel: {
+    fontSize: 14,
+    color: colors.white,
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+
+
 
 });
 
