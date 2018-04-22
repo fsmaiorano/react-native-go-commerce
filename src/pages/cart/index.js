@@ -21,7 +21,7 @@ class Cart extends Component {
     // headerTitleStyle: { textAlign: 'center', borderWidth: 1, borderColor: '#ff0000' }
   });
 
-  componentDidUpdate() {
+  componentDidMount() {
     const { cartItems } = this.props.cart;
     const { valueTotal } = this.state;
 
@@ -29,22 +29,27 @@ class Cart extends Component {
       return prevVal + item.price;
     }, 0);
 
-    this.setState({valueTotal: sumItems});
+    this.setState({ valueTotal: sumItems });
   }
 
   render() {
     const { cartItems } = this.props.cart;
     return (
-      <View>
-        {
-          cartItems.length > 0 ?
-            <FlatList
-              data={cartItems}
-              keyExtractor={cartItem => String(cartItem.id)}
-              renderItem={({ item }) => <CartItem cartItem={item} />}
-            /> : (<Text>O carrinho está vazio!</Text>)
-        }
-        <Text>{this.state.valueTotal}</Text>
+      <View style={styles.container}>
+        <View style={styles.listContainer}>
+          {
+            cartItems.length > 0 ?
+              <FlatList
+                data={cartItems}
+                keyExtractor={cartItem => String(cartItem.id)}
+                renderItem={({ item }) => <CartItem cartItem={item} />}
+              /> : (<Text>O carrinho está vazio!</Text>)
+          }
+        </View>
+        <View style={styles.subtotalContainer}>
+          <Text style={styles.subtotalTitle}>Subtotal</Text>
+          <Text style={styles.subtotalValue}>  <Text>{this.state.valueTotal}</Text></Text>
+        </View>
       </View>
     )
   }

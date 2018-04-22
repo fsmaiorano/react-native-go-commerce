@@ -32,7 +32,9 @@ class Details extends Component {
         <Text style={styles.productName}>{product.name}</Text>
         <Text style={styles.productBrand}>{product.brand}</Text>
         <Text style={styles.productPrice}>R$ {product.price}</Text>
-        <Button style={styles.addToCart} title="Adicionar ao carrinho" onPress={() => this.addToCart(product)} />
+        <View>
+          <Button style={styles.addToCart} title="Adicionar ao carrinho" onPress={() => this.addToCart(product)} />
+        </View>
       </View>
     )
   }

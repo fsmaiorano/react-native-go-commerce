@@ -31,20 +31,12 @@ const styles = StyleSheet.create({
   },
 
   addToCart: {
+    flex: 1,
     height: 45,
     width: '100%',
     paddingTop: 12,
     backgroundColor: colors.secondary,
   },
-
-  addToCartLabel: {
-    fontSize: 14,
-    color: colors.white,
-    textAlign: 'center',
-    fontWeight: 'bold',
-  },
-
-
 
 });
 

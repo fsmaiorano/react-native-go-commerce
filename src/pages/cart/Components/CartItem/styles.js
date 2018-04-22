@@ -4,32 +4,41 @@ import { general, metrics, colors } from 'styles';
 
 const styles = StyleSheet.create({
 
-  price: {
-    alignSelf: 'center',
-    color: colors.midGray,
+  container: {
+    ...general.box,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: metrics.baseMargin,
   },
-
-  containerImage: {
+  image: {
+    height: 60,
+    width: 60,
   },
-  containerText: {
-    flex: 1,
-    marginLeft: metrics.baseMargin,
+  info: {
+    marginRight: metrics.baseMargin * 2,
   },
-  avatar: {
-    width: 45,
-    height: 45,
-  },
-  title: {
-    flex: 1,
-    fontSize: 16,
+  name: {
+    fontSize: 14,
     color: colors.black,
   },
-  subTitle: {
-    flex: 1,
-    fontSize: 12,
-    color: colors.midGray,
+  brand: {
+    fontSize: 11,
+    color: colors.darkGray,
   },
-
+  price: {
+    fontSize: 14,
+    color: colors.secondary,
+  },
+  amount: {
+    width: 40,
+    height: 40,
+    marginRight: metrics.baseMargin,
+    borderWidth: 1,
+    borderColor: colors.darkGray,
+    padding: metrics.baseMargin,
+    textAlign: 'center',
+  },
 });
 
 export default styles;
