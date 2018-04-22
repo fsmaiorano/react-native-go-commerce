@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { general } from 'styles';
+import { general, metrics } from 'styles';
 
 const styles = StyleSheet.create({
 
@@ -19,6 +19,8 @@ const styles = StyleSheet.create({
   },
   productContainer: {
     ...general.productContainer,
+    flex: 1,
+    maxWidth: (metrics.screenWidth - 50) / 2,
   },
 
 });

@@ -30,7 +30,9 @@ class Home extends Component {
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
         <Categories />
-        <Products goProductDetails={this.props.navigation} />
+        <View style={styles.productContainer}>
+          <Products goProductDetails={this.props.navigation} />
+        </View>
       </View>
     )
   }

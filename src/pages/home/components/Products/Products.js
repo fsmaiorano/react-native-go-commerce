@@ -39,12 +39,14 @@ class Products extends Component {
   render() {
     const { selectedCategoryProduct } = this.props;
     return (
-      <View>
+      <View style={styles.container}>
         {
           selectedCategoryProduct.products ?
             (
               <FlatList
+                numColumns={2}
                 style={{ borderWidth: 1, borderColor: 'green' }}
+                columnWrapperStyle={styles.columnContainer}
                 data={selectedCategoryProduct.products}
                 keyExtractor={product => String(product.id)}
                 renderItem={({ item }) => <ProductItem product={item} getProduct={(item) => this.selectProduct(item)} />}

@@ -4,13 +4,14 @@ import { general, colors, metrics } from 'styles';
 
 const styles = StyleSheet.create({
   container: {
-    flexWrap: 'wrap',
-    flexDirection: 'row',
-    borderRadius: 4,
-    borderWidth: 0.5,
-    borderColor: 'green',
-    justifyContent: 'space-between',
+    width: '100%',
 
+  },
+
+  columnContainer: {
+    marginHorizontal: metrics.baseMargin * 2,
+    justifyContent: 'space-between',
+    paddingTop: metrics.basePadding,
   },
 
   debugBorder: {
