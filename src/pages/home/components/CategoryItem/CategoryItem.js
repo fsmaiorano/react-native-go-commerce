@@ -1,20 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, TouchableOpacity } from 'react-native';
 
 import styles from './styles';
 
-const CategoryItem = ({ category, getCategory }) => (
-  <TouchableOpacity style={styles.category} onPress={() => getCategory(category)}>
-    <Text style={styles.category}>{category.title}</Text>
-  </TouchableOpacity>
-);
+class CategoryItem extends Component {
 
-CategoryItem.propTypes = {
-  category: PropTypes.shape({
-    title: PropTypes.string,
-  }).isRequired,
-  getCategory: PropTypes.func.isRequired,
+  static propTypes = {
+    category: PropTypes.shape({
+      title: PropTypes.string,
+    }).isRequired,
+    getCategory: PropTypes.func.isRequired,
+  }
+
+  render() {
+    const { category, getCategory, selectedCategory } = this.props;
+
+    const containerStyle = selectedCategory
+      ? [styles.titleContainer, styles.titleContainerSelected]
+      : styles.titleContainer;
+    const titleStyle = selectedCategory? [styles.title, styles.titleSelected] : styles.title;
+
+    return (
+      <TouchableOpacity style={containerStyle} onPress={() => getCategory(category)}>
+        <Text style={titleStyle}>{category.title}</Text>
+      </TouchableOpacity>
+    )
+  }
 }
 
 

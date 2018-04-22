@@ -19,11 +19,16 @@ class Categories extends Component {
     setSelectedCategory: PropTypes.func.isRequired,
   }
 
+  state = {
+    selectedCategory: '',
+  }
+
   componentDidMount() {
     this.props.getCategoriesRequest();
   }
 
   selectCategory = (category) => {
+    this.setState({ selectedCategory: category })
     this.props.setSelectedCategory(category);
   }
 
@@ -35,7 +40,7 @@ class Categories extends Component {
           horizontal={true}
           ItemSeparatorComponent={() => <View style={{ margin: 25 }} />}
           keyExtractor={category => String(category.id)}
-          renderItem={({ item }) => <CategoryItem getCategory={(item) => this.selectCategory(item)} category={item} />}
+          renderItem={({ item }) => <CategoryItem selectedCategory={this.state.selectedCategory} getCategory={(item) => this.selectCategory(item)} category={item} />}
         />
       </View>
     )
