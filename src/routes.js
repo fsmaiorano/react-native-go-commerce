@@ -15,18 +15,11 @@ const Tabs = TabNavigator({
     tabBarOptions: {
       showIcon: true,
       showLabel: false,
-      activeTintColor: colors.white,
+      activeTintColor: colors.primary,
       inactiveTintColor: colors.whiteTransparent,
-      navigationOptions: () => ({
-        headerStyle: {
-          paddingHorizontal: metrics.basePadding,
-        },
-      }),
-      style: {
-        backgroundColor: colors.secundary,
-      },
     },
-  })
+  }
+)
 
 const Routes = StackNavigator({
   Main: Tabs,

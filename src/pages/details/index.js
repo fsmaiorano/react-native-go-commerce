@@ -10,8 +10,6 @@ import styles from './styles';
 class Details extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Detalhes do Produto',
-    // headerStyle: { justifyContent: 'center', borderWidth: 1, borderColor: '#1d2088' },
-    // headerTitleStyle: { textAlign: 'center', borderWidth: 1, borderColor: '#ff0000' }
   });
 
   componentDidMount() {

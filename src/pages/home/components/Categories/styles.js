@@ -4,7 +4,7 @@ import { general, colors, metrics } from 'styles';
 
 const styles = StyleSheet.create({
   listContainer: {
-    height: 44,
+    height: 54,
     backgroundColor: colors.primary,
     paddingHorizontal: metrics.basePadding,
     width: '100%',

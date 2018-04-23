@@ -16,9 +16,7 @@ class Cart extends Component {
 
   static navigationOptions = ({ navigation }) => ({
     title: 'Carrinho',
-    tabBarIcon: ({ tintColor }) => <Icon name="shopping-cart" size={20} color="black" />,
-    // headerStyle: { justifyContent: 'center', borderWidth: 1, borderColor: '#1d2088' },
-    // headerTitleStyle: { textAlign: 'center', borderWidth: 1, borderColor: '#ff0000' }
+    tabBarIcon: ({ tintColor }) => <Icon color={tintColor} name="shopping-cart" size={20} />,
   });
 
   componentDidMount() {
