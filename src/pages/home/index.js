@@ -6,6 +6,7 @@ import { Creators as CategoriesActions } from 'store/ducks/categories';
 import { Creators as ProductsActions } from 'store/ducks/products';
 
 import styles from './styles';
+import { colors } from 'styles';
 
 import Categories from './components/Categories/Categories';
 import Products from './components/Products/Products';
@@ -15,6 +16,11 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 class Home extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'GoCommerce',
+    headerTintColor: colors.primary,
+    headerTitleStyle: {
+      fontSize: 16,
+      fontWeight: 'bold',
+    },
     tabBarIcon: ({ tintColor }) => <Icon color={tintColor} name="home" size={20} />,
   });
 

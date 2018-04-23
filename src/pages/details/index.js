@@ -6,10 +6,16 @@ import { bindActionCreators } from 'redux';
 import { Creators as CartActions } from 'store/ducks/cart';
 
 import styles from './styles';
+import { colors } from 'styles';
 
 class Details extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Detalhes do Produto',
+    headerTintColor: colors.primary,
+    headerTitleStyle: {
+      fontSize: 16,
+      fontWeight: 'bold',
+    },
   });
 
   componentDidMount() {

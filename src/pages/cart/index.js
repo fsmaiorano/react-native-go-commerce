@@ -8,6 +8,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import CartItem from './Components/CartItem';
 
 import styles from './styles';
+import { colors } from 'styles';
 class Cart extends Component {
 
   state = {
@@ -16,6 +17,11 @@ class Cart extends Component {
 
   static navigationOptions = ({ navigation }) => ({
     title: 'Carrinho',
+    headerTintColor: colors.primary,
+    headerTitleStyle: {
+      fontSize: 16,
+      fontWeight: 'bold',
+    },
     tabBarIcon: ({ tintColor }) => <Icon color={tintColor} name="shopping-cart" size={20} />,
   });
 
