@@ -16,10 +16,10 @@ class CategoryItem extends Component {
   render() {
     const { category, getCategory, selectedCategory } = this.props;
 
-    const containerStyle = selectedCategory
+    const containerStyle = selectedCategory === category
       ? [styles.titleContainer, styles.titleContainerSelected]
       : styles.titleContainer;
-    const titleStyle = selectedCategory? [styles.title, styles.titleSelected] : styles.title;
+    const titleStyle = selectedCategory === category ? [styles.title, styles.titleSelected] : styles.title;
 
     return (
       <TouchableOpacity style={containerStyle} onPress={() => getCategory(category)}>
