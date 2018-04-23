@@ -13,6 +13,7 @@ export default {
   productPrice: {
     fontSize: 14,
     color: colors.secondary,
+    fontWeight: 'bold',
   },
   avatar: {
     height: 180,
