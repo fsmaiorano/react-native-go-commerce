@@ -5,11 +5,13 @@ import { general, metrics, colors } from 'styles';
 const styles = StyleSheet.create({
 
   container: {
-    ...general.box,
+    backgroundColor: colors.white,
+    borderRadius: 5,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: metrics.baseMargin,
+    padding: 10,
   },
   image: {
     height: 60,

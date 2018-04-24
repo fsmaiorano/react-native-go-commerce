@@ -52,7 +52,7 @@ class Cart extends Component {
         </View>
         <View style={styles.subtotalContainer}>
           <Text style={styles.subtotalTitle}>Subtotal</Text>
-          <Text style={styles.subtotalValue}>  <Text>{this.state.valueTotal}</Text></Text>
+          <Text style={styles.subtotalValue}> <Text>{this.state.valueTotal}</Text></Text>
         </View>
       </View>
     )

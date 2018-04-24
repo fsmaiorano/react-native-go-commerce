@@ -4,8 +4,8 @@ import { general, metrics, colors } from 'styles';
 
 const styles = StyleSheet.create({
   container: {
-    height: metrics.screenHeight - 54,
-    position: 'relative'
+    flex: 1,
+    position: 'relative',
   },
   listContainer: {
     paddingHorizontal: metrics.basePadding * 2,
