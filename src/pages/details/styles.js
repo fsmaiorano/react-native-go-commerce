@@ -3,7 +3,13 @@ import { StyleSheet } from 'react-native';
 import { general, metrics, colors } from 'styles';
 
 const styles = StyleSheet.create({
-
+  info: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginVertical: metrics.baseMargin,
+  },
   productName: {
     fontSize: 18,
     color: colors.black,
@@ -23,11 +29,11 @@ const styles = StyleSheet.create({
   },
   productContainer: {
     ...general.productContainer,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     margin: metrics.baseMargin * 2,
     padding: metrics.basePadding,
-    height: '80%',
   },
 
   addToCart: {

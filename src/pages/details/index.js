@@ -33,9 +33,13 @@ class Details extends Component {
     return (
       <View style={styles.productContainer} key={product.id}>
         <Image resizeMode="contain" style={styles.avatar} source={{ uri: product.image }} />
-        <Text style={styles.productName}>{product.name}</Text>
-        <Text style={styles.productBrand}>{product.brand}</Text>
-        <Text style={styles.productPrice}>R$ {product.price}</Text>
+        <View style={styles.info}>
+          <View>
+            <Text style={styles.productName}>{product.name}</Text>
+            <Text style={styles.productBrand}>{product.brand}</Text>
+          </View>
+          <Text style={styles.productPrice}>R$ {product.price}</Text>
+        </View>
         <View>
           <Button style={styles.addToCart} title="Adicionar ao carrinho" onPress={() => this.addToCart(product)} />
         </View>
