@@ -32,7 +32,7 @@ class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar barStyle="light-content" />
+        <StatusBar barStyle="dark-content" />
         <Categories />
         <View style={styles.productContainer}>
           <Products goProductDetails={this.props.navigation} />
