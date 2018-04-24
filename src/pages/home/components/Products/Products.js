@@ -45,7 +45,6 @@ class Products extends Component {
             (
               <FlatList
                 numColumns={2}
-                style={{ borderWidth: 1, borderColor: 'green' }}
                 columnWrapperStyle={styles.columnContainer}
                 data={selectedCategoryProduct.products}
                 keyExtractor={product => String(product.id)}

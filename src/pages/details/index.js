@@ -15,6 +15,8 @@ class Details extends Component {
     headerTitleStyle: {
       fontSize: 16,
       fontWeight: 'bold',
+      textAlign: 'center',
+      alignSelf: 'center'
     },
   });
 
@@ -34,7 +36,7 @@ class Details extends Component {
       <View style={styles.productContainer} key={product.id}>
         <Image resizeMode="contain" style={styles.avatar} source={{ uri: product.image }} />
         <View style={styles.info}>
-          <View>
+          <View style={{width: '80%'}}>
             <Text style={styles.productName}>{product.name}</Text>
             <Text style={styles.productBrand}>{product.brand}</Text>
           </View>

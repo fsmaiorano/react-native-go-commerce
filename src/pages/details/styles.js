@@ -4,10 +4,9 @@ import { general, metrics, colors } from 'styles';
 
 const styles = StyleSheet.create({
   info: {
-    width: '100%',
+    width: '65%',
+    marginRight: 50,
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
     marginVertical: metrics.baseMargin,
   },
   productName: {
@@ -29,6 +28,7 @@ const styles = StyleSheet.create({
   },
   productContainer: {
     ...general.productContainer,
+    maxHeight: '80%',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
     height: 45,
     width: metrics.screenWidth - 80,
     paddingTop: 15,
+    marginTop: 25,
     backgroundColor: colors.secondary,
   },
   addToCartLabel: {
@@ -47,6 +48,15 @@ const styles = StyleSheet.create({
     color: colors.white,
     textAlign: 'center',
     fontWeight: 'bold',
+  },
+  header: {
+    height: 54,
+  },
+  headerTitle: {
+    fontSize: 16,
+    textAlign: 'center',
+    flex: 1,
+    color: colors.primary,
   },
 
 });
