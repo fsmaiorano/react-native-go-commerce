@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Image, Button } from 'react-native';
+import { View, Text, Image, Button, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -41,7 +41,9 @@ class Details extends Component {
           <Text style={styles.productPrice}>R$ {product.price}</Text>
         </View>
         <View>
-          <Button style={styles.addToCart} title="Adicionar ao carrinho" onPress={() => this.addToCart(product)} />
+          <TouchableOpacity style={styles.addToCart} onPress={() => this.addToCart(product)}>
+            <Text style={styles.addToCartLabel}>Adicionar ao carrinho</Text>
+          </TouchableOpacity>
         </View>
       </View>
     )
