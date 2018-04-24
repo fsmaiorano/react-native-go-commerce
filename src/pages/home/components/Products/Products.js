@@ -53,8 +53,8 @@ class Products extends Component {
               />
             ) : (
               <View>
-                <Text>Bem vindo ao GoCommerce!</Text>
-                <Text>Selecione uma categoria para começar.</Text>
+                <Text style={{alignSelf: 'center', justifyContent: 'center'}}>Bem vindo ao GoCommerce!</Text>
+                <Text style={{alignSelf: 'center', justifyContent: 'center'}}>Selecione uma categoria para começar.</Text>
               </View>
             )
         }
