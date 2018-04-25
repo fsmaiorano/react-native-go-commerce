@@ -11,10 +11,6 @@ import styles from './styles';
 import { colors } from 'styles';
 class Cart extends Component {
 
-  state = {
-    valueTotal: 0
-  }
-
   static navigationOptions = ({ navigation }) => ({
     title: 'Carrinho',
     headerTintColor: colors.primary,
@@ -25,19 +21,8 @@ class Cart extends Component {
     tabBarIcon: ({ tintColor }) => <Icon color={tintColor} name="shopping-cart" size={20} />,
   });
 
-  componentDidMount() {
-    const { cartItems } = this.props.cart;
-    const { valueTotal } = this.state;
-
-    let sumItems = cartItems.reduce(function (prevVal, item) {
-      return prevVal + item.price;
-    }, 0);
-
-    this.setState({ valueTotal: sumItems });
-  }
-
   render() {
-    const { cartItems } = this.props.cart;
+    const { cartItems, totalAmount } = this.props.cart;
     return (
       <View style={styles.container}>
         <View style={styles.listContainer}>
@@ -52,7 +37,7 @@ class Cart extends Component {
         </View>
         <View style={styles.subtotalContainer}>
           <Text style={styles.subtotalTitle}>Subtotal</Text>
-          <Text style={styles.subtotalValue}> <Text>{this.state.valueTotal}</Text></Text>
+          <Text style={styles.subtotalValue}> <Text>{totalAmount}</Text></Text>
         </View>
       </View>
     )

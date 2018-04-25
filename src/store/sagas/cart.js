@@ -14,7 +14,12 @@ export function* getCart() {
 
 export function* setCart(action) {
   try {
-    yield put(CartActions.setCartSuccess(action.payload.cart));
+    const { cartItems } = yield select(state => state.Cart);
+    let sumItems = cartItems.reduce(function (prevVal, item) {
+      return prevVal + (item.price * item.amount);
+    }, 0);
+
+    yield put(CartActions.setCartSuccess(action.payload.cart, sumItems));
   } catch (err) {
     yield put(CartActions.setCartFailure('Erro ao colocar o produto no carrinho'));
   }

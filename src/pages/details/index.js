@@ -28,12 +28,12 @@ class Details extends Component {
     const { cartItems } = this.props.cart;
 
     if(!cartItems.includes(product)) {
-      product.qtd = 1;
+      product.amount = 1;
       cartItems.push(product);
     }
     else {
       let index = cartItems.findIndex(item => item === product);
-      cartItems[index].qtd ++;
+      cartItems[index].amount ++;
     }
 
     this.props.setCartRequest(cartItems);

@@ -29,7 +29,7 @@ export default function cart(state = initialState, action) {
     case Types.SET_CART_REQUEST:
       return { ...state, isLoading: true, cartItems: [...action.payload.cart] };
     case Types.SET_CART_SUCCESS:
-      return { ...state, isLoading: false, cartItems: action.payload.cart };
+      return { ...state, isLoading: false, cartItems: action.payload.cart, totalAmount: action.payload.totalAmount };
     case Types.SET_CART_FAILURE:
       return { ...state, isLoading: false, error: action.payload.error };
 
@@ -60,9 +60,9 @@ export const Creators = {
     payload: { cart },
   }),
 
-  setCartSuccess: cart => ({
+  setCartSuccess: (cart, totalAmount) => ({
     type: Types.SET_CART_SUCCESS,
-    payload: { cart },
+    payload: { cart, totalAmount },
   }),
 
   setCartFailure: error => ({
