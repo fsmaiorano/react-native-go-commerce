@@ -26,7 +26,16 @@ class Details extends Component {
 
   addToCart = (product) => {
     const { cartItems } = this.props.cart;
-    cartItems.push(product);
+
+    if(!cartItems.includes(product)) {
+      product.qtd = 1;
+      cartItems.push(product);
+    }
+    else {
+      let index = cartItems.findIndex(item => item === product);
+      cartItems[index].qtd ++;
+    }
+
     this.props.setCartRequest(cartItems);
   }
 
