@@ -10,12 +10,16 @@ import styles from './styles';
 class CartItem extends Component {
 
   changeAmount(cartItem, amount) {
-    const { cartItems, totalAmount } = this.props.cart;
-
+    const { cartItems } = this.props.cart;
     let index = cartItems.findIndex(item => item === cartItem);
     cartItems[index].amount = amount;
-
     this.props.setCartRequest(cartItems);
+  }
+
+  removeItem(cartItem){
+    const { cartItems } = this.props.cart;
+    let updatedCart = cartItems.filter(item => item !== cartItem);
+    this.props.setCartRequest(updatedCart);
   }
 
   render() {
@@ -40,10 +44,8 @@ class CartItem extends Component {
           underlineColorAndroid="rgba(0, 0, 0, 0)"
           value={cartItem.amount}
           onChangeText={amount => this.changeAmount(cartItem, amount)}
-        // onChangeText={amount => this.props.changeAmount(cartItem.id, amount)}
-        // onBlur={() => !cartItem.amount && this.props.changeAmount(cartItem.id, '1')}
         />
-        <TouchableOpacity onPress={() => this.props.removeProduct(cartItem.id)}>
+        <TouchableOpacity onPress={() => this.removeItem(cartItem)}>
           <Icon name="close" size={20} color={colors.darkGray} />
         </TouchableOpacity>
       </View>
