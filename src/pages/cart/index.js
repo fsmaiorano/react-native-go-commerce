@@ -30,8 +30,6 @@ class Cart extends Component {
     this.setState({ totalAmount });
   }
 
-
-
   render() {
     const { cartItems, totalAmount } = this.props.cart;
     return (
