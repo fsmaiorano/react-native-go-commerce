@@ -11,6 +11,10 @@ import styles from './styles';
 import { colors } from 'styles';
 class Cart extends Component {
 
+  state = {
+    totalAmount: 0,
+  };
+
   static navigationOptions = ({ navigation }) => ({
     title: 'Carrinho',
     headerTintColor: colors.primary,
@@ -20,6 +24,13 @@ class Cart extends Component {
     },
     tabBarIcon: ({ tintColor }) => <Icon color={tintColor} name="shopping-cart" size={20} />,
   });
+
+  componentDidMount(){
+    const { totalAmount } = this.props.cart;
+    this.setState({ totalAmount });
+  }
+
+
 
   render() {
     const { cartItems, totalAmount } = this.props.cart;
