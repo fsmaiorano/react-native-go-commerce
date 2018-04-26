@@ -5,11 +5,10 @@ import { general, metrics, colors } from 'styles';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    position: 'relative',
   },
   listContainer: {
-    paddingHorizontal: metrics.basePadding * 2,
-    paddingTop: metrics.basePadding * 2,
+    paddingHorizontal: metrics.basePadding,
+    paddingTop: metrics.basePadding,
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,

@@ -11,14 +11,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: metrics.baseMargin,
-    padding: 10,
+    padding: 4,
   },
   image: {
     height: 60,
     width: 60,
   },
   info: {
-    marginRight: metrics.baseMargin * 2,
+    marginRight: metrics.baseMargin,
+    minWidth: 150,
+    maxWidth: 150,
   },
   name: {
     fontSize: 14,
