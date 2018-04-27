@@ -6,7 +6,7 @@ import rootSaga from '../../src/store/sagas';
 import { Creators as actions } from '../../src/store/ducks/categories';
 
 const categoriesFixture = require('./fixtures/categories.json');
-console.log(categoriesFixture);
+console.log(categoriesFixture['/categories']);
 
 describe('Testing categories saga', () => {
   let sagaTester = null;
@@ -20,7 +20,6 @@ describe('Testing categories saga', () => {
 
   it('can list categories', async () => {
     apiMock.onGet('/categories').reply(200, categoriesFixture['/categories']);
-    console.log(actions);
     sagaTester.dispatch(actions.getCategoriesRequest());
     await sagaTester.waitFor(actions.getCategoriesSuccess(categoriesFixture['/categories']).type);
     expect(sagaTester.getLatestCalledAction()).toEqual(actions.getCategoriesSuccess(categoriesFixture['/categories']));
@@ -28,7 +27,6 @@ describe('Testing categories saga', () => {
 
   it('throw error when list categories', async () => {
     apiMock.onGet('/categories').reply(400);
-    console.log(actions);
     sagaTester.dispatch(actions.getCategoriesRequest());
     await sagaTester.waitFor(actions.getCategoriesFailure('Erro ao recuperar categorias').type);
     expect(sagaTester.getLatestCalledAction()).toEqual(actions.getCategoriesFailure('Erro ao recuperar categorias'));

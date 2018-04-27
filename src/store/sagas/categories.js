@@ -5,7 +5,7 @@ import { Creators as CategoriesActions } from 'store/ducks/categories';
 export function* getCategories() {
   try {
     const response = yield call(api.get, '/categories');
-    console.tron.log(response)
+    console.log(response.data);
     yield put(CategoriesActions.getCategoriesSuccess(response.data));
 
   } catch (err) {
