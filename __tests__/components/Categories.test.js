@@ -14,5 +14,4 @@ describe('Testing Categories', () => {
     const wrapper = shallow(<FlatList />);
     expect(wrapper.exists()).toBe(true);
   })
-
 });
