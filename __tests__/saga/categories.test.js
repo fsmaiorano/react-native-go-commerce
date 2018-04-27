@@ -32,4 +32,25 @@ describe('Testing categories saga', () => {
   });
 });
 
+describe('Testing select of an category', () => {
+  let sagaTester = null;
+
+  beforeEach(() => {
+    sagaTester = new SagaTester({});
+    sagaTester.start(rootSaga);
+  });
+
+  it('can set category', () => {
+    sagaTester.dispatch(actions.setSelectedCategory({id: 1, title: 'teste'}));
+    sagaTester.waitFor(actions.setSelectedCategorySuccess().type);
+    expect(sagaTester.getLatestCalledAction()).toEqual(actions.setSelectedCategorySuccess({id: 1, title: 'teste'}));
+  });
+
+  it('throw error when set category', () => {
+    sagaTester.dispatch(actions.setSelectedCategoryFailure({id: 1}));
+    sagaTester.waitFor(actions.setSelectedCategoryFailure().type);
+    expect(sagaTester.getLatestCalledAction()).not.toEqual(actions.setSelectedCategoryFailure({id: 1, title: 'teste'}));
+  });
+});
+
 
