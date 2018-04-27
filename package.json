@@ -46,10 +46,10 @@
   "jest": {
     "preset": "react-native",
     "setupFiles": [
-      "<rootDir>/__tests__/setup.js"
+      "<rootDir>/tests/setup.js"
     ],
     "testMatch": [
-      "<rootDir>/__tests__/**/?(*.)(spec|test).js?(x)"
+      "<rootDir>/tests/**/?(*.)(spec|test).js?(x)"
     ]
   }
 }
