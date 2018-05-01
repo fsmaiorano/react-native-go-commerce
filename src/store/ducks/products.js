@@ -43,7 +43,7 @@ export const Creators = {
     payload: { products },
   }),
 
-  getProductsByCategoryFailure: products => ({
+  getProductsByCategoryFailure: error => ({
     type: Types.GET_PRODUCTS_BY_CATEGORY_FAILURE,
     payload: { error },
   }),
