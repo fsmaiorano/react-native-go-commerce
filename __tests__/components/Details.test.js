@@ -1,10 +1,10 @@
 import React from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, TouchableOpacity } from 'react-native';
 import { shallow } from 'enzyme';
 import { Text } from 'react-native';
 import sinon from 'sinon';
 import configureStore from 'redux-mock-store';
-
+import { Creators as actions } from '../../src/store/ducks/cart';
 import Details from './../../src/pages/details';
 const mockStore = configureStore([]);
 
@@ -33,5 +33,9 @@ describe('Can render product detail', () => {
     expect(wrapper.exists()).toBe(true);
   })
 
+  it('component details contain a product', () => {
+    const wrapper = createWrapper(); // Carrega o componente para dentro do teste
+    expect(wrapper.find(TouchableOpacity).exists());
+  })
 
 });
