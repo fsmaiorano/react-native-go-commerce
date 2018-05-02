@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { View, Text, TouchableOpacity, Image, FlatList } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { NavigationActions } from 'react-navigation';
-// import { Creators as CategoriesActions } from 'store/ducks/categories';
 
 import styles from './styles';
 import ProductItem from 'pages/home/components/ProductItem/ProductItem';
