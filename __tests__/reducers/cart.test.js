@@ -12,31 +12,35 @@ const cart = [
   }
 ];
 
-
-describe('Testing todo reducer', () => {
+describe('Testing set cart reducer', () => {
 
   it('add a new item', () => {
     const state = cartReducer([], actions.setCartRequest(cart));
     expect(state.cartItems).toHaveLength(1);
   });
 
-  // it('can add new todo', () => {
-  //   const state = todoReducer([], actions.addTodo('Fazer café'));
-  //   expect(state).toHaveLength(1);
-  //   expect(state[0].text).toBe('Fazer café');
-  // });
+  it('success when add a new item', () => {
+    const state = cartReducer([], actions.setCartSuccess(cart));
+    expect(state.cartItems).toHaveLength(1);
+  });
 
-  // it('can remove todo', () => {
-  //   const state = todoReducer(todos, actions.removeTodo(1));
-  //   expect(state).toHaveLength(1);
-  //   expect(state).not.toContainEqual(todos[0]);
-  // });
+  it('failure when add a new item', () => {
+    const state = cartReducer([], actions.setCartFailure("Error"));
+    expect(state.error).toBe("Error");
+  });
 
-  // it('can mark as complete todo', () => {
-  //   let state = todoReducer(todos, actions.completeTodo(1));
-  //   expect(state[0].completed).toBe(true);
+});
 
-  //   state = todoReducer(state, actions.completeTodo(1));
-  //   expect(state[0].completed).toBe(false);
-  // });
+describe('Testing get cart reducer', () => {
+
+  it('get cart', () => {
+    const state = cartReducer([], actions.setCartSuccess(cart));
+    expect(state.cartItems).toHaveLength(1);
+  });
+
+  it('get cart failure', () => {
+    const state = cartReducer([], actions.setCartFailure("Error"));
+    expect(state.error).toBe("Error");
+  });
+
 });
