@@ -34,12 +34,18 @@ describe('Testing set cart reducer', () => {
 describe('Testing get cart reducer', () => {
 
   it('get cart', () => {
-    const state = cartReducer([], actions.setCartSuccess(cart));
+    const state = cartReducer([], actions.getCartRequest());
+    state.cartItems = [cart]
+    expect(state.cartItems).toHaveLength(1);
+  });
+
+  it('get cart success', () => {
+    const state = cartReducer([], actions.getCartSuccess(cart));
     expect(state.cartItems).toHaveLength(1);
   });
 
   it('get cart failure', () => {
-    const state = cartReducer([], actions.setCartFailure("Error"));
+    const state = cartReducer([], actions.getCartFailure("Error"));
     expect(state.error).toBe("Error");
   });
 
