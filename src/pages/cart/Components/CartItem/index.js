@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { Creators as CartActions } from 'store/ducks/cart';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import { colors } from 'styles';
-import styles from './styles';
+import React, { Component } from "react";
+import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { Creators as CartActions } from "store/ducks/cart";
+import Icon from "react-native-vector-icons/FontAwesome";
+import { colors } from "styles";
+import styles from "./styles";
 
 class CartItem extends Component {
-
   changeAmount(cartItem, amount) {
     const { cartItems } = this.props.cart;
     let index = cartItems.findIndex(item => item === cartItem);
@@ -16,7 +15,7 @@ class CartItem extends Component {
     this.props.setCartRequest(cartItems);
   }
 
-  removeItem(cartItem){
+  removeItem(cartItem) {
     const { cartItems } = this.props.cart;
     let updatedCart = cartItems.filter(item => item !== cartItem);
     this.props.setCartRequest(updatedCart);
@@ -42,23 +41,25 @@ class CartItem extends Component {
           keyboardType="numeric"
           style={styles.amount}
           underlineColorAndroid="rgba(0, 0, 0, 0)"
-          value={cartItem.amount}
+          value={cartItem.amount.toString()}
           onChangeText={amount => this.changeAmount(cartItem, amount)}
         />
         <TouchableOpacity onPress={() => this.removeItem(cartItem)}>
           <Icon name="close" size={20} color={colors.darkGray} />
         </TouchableOpacity>
       </View>
-    )
+    );
   }
 }
 
 const mapStateToProps = state => ({
-  cart: state.Cart,
+  cart: state.Cart
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(CartActions, dispatch);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(CartActions, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(CartItem);
-
-
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CartItem);
